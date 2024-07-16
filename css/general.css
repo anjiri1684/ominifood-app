@@ -102,6 +102,9 @@ body {
 .grid--4-cols {
   grid-template-columns: repeat(4, 1fr);
 }
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
 
 .grid--center-v {
   align-items: center;
@@ -230,6 +233,9 @@ body {
 
 *:focus {
   outline: none;
+  /* outline: 4px dotted #e67e22;
+  outline-offset: 8px; */
+  box-shadow: 0 0 0 0.8rem #e67e22;
 }
 
 /* HELPER/SETTING CLASSES */
