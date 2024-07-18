@@ -1,6 +1,9 @@
-/************************/
-/* BELOW 1344PX (smaller desktops) */
-/************************/
+/* rem and em do NOT depend on html font-size in media queries! Instead, 1rem = 1em = 16px */
+
+/**************************/
+/* BELOW 1344px (Smaller desktops) */
+/**************************/
+
 @media (max-width: 84em) {
   .hero {
     max-width: 120rem;
@@ -15,12 +18,13 @@
   }
 }
 
-/****************************/
-/* BELOW 1200PX (Landscape tablets*/
-/****************************/
+/**************************/
+/* BELOW 1200px (Landscape Tablets) */
+/**************************/
 
 @media (max-width: 75em) {
   html {
+    /* 9px / 16px  */
     font-size: 56.25%;
   }
 
@@ -49,17 +53,18 @@
     gap: 4.8rem;
   }
 
-  .testimonial-container {
+  .testimonials-container {
     padding: 9.6rem 3.2rem;
   }
 }
 
-/****************************/
-/* BELOW 1200PX (Tablets*/
-/****************************/
+/**************************/
+/* BELOW 944px (Tablets) */
+/**************************/
 
 @media (max-width: 59em) {
   html {
+    /* 8px / 16px = 0.5 = 50% */
     font-size: 50%;
   }
 
@@ -69,11 +74,12 @@
     gap: 6.4rem;
   }
 
-  .hero-text-box {
+  .hero-text-box,
+  .hero-img-box {
     text-align: center;
   }
 
-  .hero img {
+  .hero-img {
     width: 60%;
   }
 
@@ -103,6 +109,7 @@
   }
 
   .cta {
+    /* 3/5 = 60% + 2/5 = 40% */
     grid-template-columns: 3fr 2fr;
   }
 
@@ -114,12 +121,13 @@
     margin-top: 1.2rem;
   }
 
-  .icon-mobile-nav {
+  /* MOBILE NAVIGATION */
+  .btn-mobile-nav {
     display: block;
   }
 
   .main-nav {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.97);
     position: absolute;
     top: 0;
     left: 0;
@@ -130,11 +138,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.5s;
+    transition: all 0.5s ease-in;
 
     /* Hide navigation */
-    /* Allows No transitiond at all */
-    /* display: none */
+    /* Allows NO transitions at all */
+    /* display: none; */
 
     /* 1) Hide it visually */
     opacity: 0;
@@ -146,23 +154,24 @@
     visibility: hidden;
   }
 
-  .main-nav-list {
-    flex-direction: column;
-    gap: 4.8rem;
-  }
-
   .nav-open .main-nav {
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
+    transform: translateX(0);
   }
 
-  .nav-open .icon-mobile-nav[name="close-outline"] {
+  .nav-open .icon-mobile-nav[name='close-outline'] {
     display: block;
   }
 
-  .nav-open .icon-mobile-nav[name="menu-outline"] {
+  .nav-open .icon-mobile-nav[name='menu-outline'] {
     display: none;
+  }
+
+  .main-nav-list {
+    flex-direction: column;
+    gap: 4.8rem;
   }
 
   .main-nav-link:link,
@@ -171,16 +180,17 @@
   }
 }
 
-/****************************/
-/* BELOW 700PX (smaller Tablets*/
-/****************************/
+/**************************/
+/* BELOW 704px (Smaller tablets) */
+/**************************/
+
 @media (max-width: 44em) {
   .grid--3-cols,
   .grid--4-cols {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .diet {
+  .diets {
     grid-column: 1 / -1;
     justify-self: center;
   }
@@ -193,7 +203,7 @@
     width: 100%;
   }
 
-  .grid-footer {
+  .grid--footer {
     grid-template-columns: repeat(6, 1fr);
   }
 
@@ -209,9 +219,9 @@
   }
 }
 
-/****************************/
-/* BELOW 544PX (PHONES)*/
-/****************************/
+/**************************/
+/* BELOW 544px (Phones) */
+/**************************/
 
 @media (max-width: 34em) {
   .grid {
@@ -224,9 +234,9 @@
     grid-template-columns: 1fr;
   }
 
+  .btn,
   .btn:link,
-  .btn:visited,
-  .btn {
+  .btn:visited {
     padding: 2.4rem 1.6rem;
   }
 
@@ -241,13 +251,15 @@
   .hero-img {
     width: 80%;
   }
-  .logo img {
+
+  .logos img {
     height: 1.2rem;
   }
 
   .step-img-box:nth-child(2) {
     grid-row: 1;
   }
+
   .step-img-box:nth-child(6) {
     grid-row: 5;
   }
@@ -269,12 +281,20 @@
     grid-template-columns: 1fr;
   }
 
+  .cta-text-box {
+    padding: 3.2rem;
+  }
+
   .cta-img-box {
     height: 32rem;
     grid-row: 1;
   }
-
-  .cta-text-box {
-    padding: 3.2rem;
-  }
 }
+
+/* 
+- Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
